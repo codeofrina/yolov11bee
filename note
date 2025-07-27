@@ -1,0 +1,16 @@
+
+
+## git operations
+git add .
+git commit -m "feat: my first change"
+git push origin main
+(first time:)git push -u origin main 
+
+# clear cache
+pip cache purge
+conda clean -afy
+
+## machine settings
+view:
+    python3.8.20
+    torch1.8.0+cpu
