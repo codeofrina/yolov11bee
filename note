@@ -14,3 +14,6 @@ conda clean -afy
 view:
     python3.8.20
     torch1.8.0+cpu
+train:
+    python3.8.20
+    torch1.8.0+cu111
