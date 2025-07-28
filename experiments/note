@@ -1,0 +1,4 @@
+batch = 4  --> gpu 3757MiB
+batch = 24 --> gpu 10121MiB / 15360MiB
+
+batch=24, fraction=0.4, lr0=0.00005, lrf=0.01, warmup_epochs=3, box=7.5, cls=0.5, dfl=1.5

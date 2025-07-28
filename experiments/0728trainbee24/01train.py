@@ -33,7 +33,7 @@ def main():
         amp=True,                 # 混合精度训练
         fraction=0.4,         #   # 只训练40%
         freeze=None,              # 冻结模型的前 N 层或按索引指定的层
-        lr0=0.00001,          #   # 初始学习率
+        lr0=0.00005,          #*  # 初始学习率
         lrf=0.01,             #   # 最终学习率占初始学习率的百分比
         momentum=0.937,           # 用于Adam 优化器的 beta1
         weight_decay=0.0005,  #   # L2正则化项
