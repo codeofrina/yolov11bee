@@ -6,6 +6,9 @@ git commit -m "feat: my first change"
 git push origin main
 (first time:)git push -u origin main 
 
+git pull origin main
+git pull origin main --no-rebase ## merge
+
 # clear cache
 pip cache purge
 conda clean -afy
