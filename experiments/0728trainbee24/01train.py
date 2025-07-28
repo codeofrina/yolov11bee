@@ -27,7 +27,7 @@ def main():
         single_cls=True,
         rect=True,                # 缩放不改变尺寸
         multi_scale=True,     #   # 多尺度训练
-        cos_lr=False,             # 余弦学习率
+        cos_lr=True,          #*  # 余弦学习率
         close_mosaic=10,          # 最后几个epoch关闭mosaic
         resume=False,
         amp=True,                 # 混合精度训练
