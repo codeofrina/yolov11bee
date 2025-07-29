@@ -13,7 +13,7 @@ def main():
     train_args = dict(
         data=data_yaml,
         epochs=100,
-        patience=20,            # # early stop
+        patience=15,            # # early stop
         batch=24,               # # batch size
         imgsz=800,
         device=0,
@@ -36,7 +36,7 @@ def main():
         lr0=0.00003,          #*  # 初始学习率
         lrf=0.01,             #   # 最终学习率占初始学习率的百分比
         momentum=0.937,           # 用于Adam 优化器的 beta1
-        weight_decay=0.002,   #*  # L2正则化项
+        weight_decay=0.01,    #*  # L2正则化项
         warmup_epochs=3,      #   # 学习率预热的epoch数，学习率从低值逐渐增加到初始学习率
         warmup_momentum=0.8,      # 热身阶段的初始动力，在热身期间逐渐调整到设定动力。
         warmup_bias_lr=0.1,       # 热身阶段的偏置参数学习率，有助于稳定初始历元的模型训练
