@@ -13,12 +13,12 @@ def main():
     train_args = dict(
         data=data_yaml,
         epochs=100,
-        patience=10,
-        batch=24,               #  # batch size
+        patience=20,            # # early stop
+        batch=24,               # # batch size
         imgsz=800,
         device=0,
         workers=8,                # dataloader 线程 train 为 8 核
-        project="/workspace/yolov11bee/experiments/0728trainbee24",
+        project="/workspace/yolov11bee/experiments/0729L2norm-lr0.00003",
         name="01train",           # 日志目录 runs/01train
 
         # ---- 训练设置 ----
