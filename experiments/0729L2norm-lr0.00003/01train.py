@@ -12,8 +12,8 @@ def main():
     # https://docs.ultralytics.com/zh/usage/cfg/#train-settings
     train_args = dict(
         data=data_yaml,
-        epochs=100,
-        patience=20,            # # early stop
+        epochs=500,               #  ##################################
+        patience=2000000,            # # early stop ##########################
         batch=24,               # # batch size
         imgsz=800,
         device=0,
