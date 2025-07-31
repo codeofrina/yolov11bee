@@ -1,6 +1,6 @@
 task: detect
 mode: train
-model: /workspace/yolov11bee/experiments/yolo11n.pt
+model: /workspace/yolov11bee/experiments/0729L2norm-lr0.00003/01train/weights/last.pt
 data: /workspace/dataset/BEE24-yolo/data.yaml
 epochs: 500
 time: null
@@ -24,7 +24,7 @@ single_cls: true
 rect: true
 cos_lr: false
 close_mosaic: 10
-resume: false
+resume: /workspace/yolov11bee/experiments/0729L2norm-lr0.00003/01train/weights/last.pt
 amp: true
 fraction: 1.0
 profile: false
@@ -93,7 +93,7 @@ perspective: 0.0
 flipud: 0.0
 fliplr: 0.5
 bgr: 0.0
-mosaic: 1.0
+mosaic: 0.0
 mixup: 0.0
 cutmix: 0.0
 copy_paste: 0.0
