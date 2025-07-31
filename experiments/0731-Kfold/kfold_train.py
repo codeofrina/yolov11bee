@@ -26,10 +26,10 @@ def run_kfold():
         prepare_fold(k=fold, n=k)
 
         # 2.2 创建本次折的 project 子目录
-        model_path   = "/workspace/yolov11bee/experiments/yolo11n.pt",
-        data_yaml    = "/workspace/dataset/BEE24-yolo/data.yaml",
+        model_path   = "/workspace/yolov11bee/experiments/0731-Kfold/yolo11n.pt",
+        data_yaml    = "/workspace/dataset/custom-v1/data.yaml",
         project_name = "para-pre-expe-01",                                                           #* # 本次参数描述
-        project_root = "/workspace/yolov11bee/experiments/kfold_runs/"+project_name,          # 所有折日志的根目录
+        project_root = "/workspace/yolov11bee/experiments/0731-Kfold/runs_kfold/"+project_name,          # 所有折日志的根目录
 
         # 2.3 载入模型
         model = YOLO(model_path)
@@ -41,7 +41,7 @@ def run_kfold():
             data        = data_yaml,
 
             epochs=100,                        #  ##################################
-            patience=50,                     # # early stop ##########################
+            patience=20,                     # # early stop ##########################
             batch=24,                        # # batch size
             imgsz=1280,
             device=0,
@@ -50,7 +50,7 @@ def run_kfold():
             # ---- 训练设置 ----
             optimizer="AdamW",
             seed=667788,
-            single_cls=True,
+            single_cls=False,
             rect=True,                         # 缩放不改变尺寸
             multi_scale=True,              #   # 多尺度训练
             cos_lr=False,                  #*  # 余弦学习率
