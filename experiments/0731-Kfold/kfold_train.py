@@ -28,7 +28,7 @@ def run_kfold():
         # 2.2 创建本次折的 project 子目录
         model_path   = "/workspace/yolov11bee/experiments/yolo11n.pt",
         data_yaml    = "/workspace/dataset/BEE24-yolo/data.yaml",
-        project_name = "para01",                                                           #* # 本次参数描述
+        project_name = "para-pre-expe-01",                                                           #* # 本次参数描述
         project_root = "/workspace/yolov11bee/experiments/kfold_runs/"+project_name,          # 所有折日志的根目录
 
         # 2.3 载入模型
@@ -40,39 +40,39 @@ def run_kfold():
             name        = "train-fold-"+str(fold),
             data        = data_yaml,
 
-            epochs=500,               #  ##################################
-            patience=2000000,            # # early stop ##########################
-            batch=24,               # # batch size
-            imgsz=800,
+            epochs=100,                        #  ##################################
+            patience=50,                     # # early stop ##########################
+            batch=24,                        # # batch size
+            imgsz=1280,
             device=0,
-            workers=8,                # dataloader 线程 train 为 8 核
+            workers=8,                         # dataloader 线程 train 为 8 核
 
             # ---- 训练设置 ----
             optimizer="AdamW",
             seed=667788,
             single_cls=True,
-            rect=True,                # 缩放不改变尺寸
-            multi_scale=True,     #   # 多尺度训练
-            cos_lr=False,         #*  # 余弦学习率
-            close_mosaic=10,          # 最后几个epoch关闭mosaic
+            rect=True,                         # 缩放不改变尺寸
+            multi_scale=True,              #   # 多尺度训练
+            cos_lr=False,                  #*  # 余弦学习率
+            close_mosaic=10,                   # 最后几个epoch关闭mosaic
             resume=False,
-            amp=True,                 # 混合精度训练
-            fraction=1.0,         #*  # 只训练40%
-            freeze=None,              # 冻结模型的前 N 层或按索引指定的层
-            lr0=0.00002,          #*  # 初始学习率
-            lrf=0.01,             #   # 最终学习率占初始学习率的百分比
-            momentum=0.937,           # 用于Adam 优化器的 beta1
-            weight_decay=0.01,    #*  # L2正则化项
-            warmup_epochs=3,      #   # 学习率预热的epoch数，学习率从低值逐渐增加到初始学习率
-            warmup_momentum=0.8,      # 热身阶段的初始动力，在热身期间逐渐调整到设定动力。
-            warmup_bias_lr=0.1,       # 热身阶段的偏置参数学习率，有助于稳定初始历元的模型训练
-            box=7.5,                  # 损失函数中边框损失部分的权重
-            cls=0.5,                  # 分类损失在总损失函数中的权重
-            dfl=1.5,                  # 分布焦点损失权重，在某些YOLO 版本中用于精细分类
-            nbs=64,                   # 用于损耗正常化的标称批量大小
+            amp=True,                          # 混合精度训练
+            fraction=1.0,                  #*  # 只训练40%
+            freeze=None,                       # 冻结模型的前 N 层或按索引指定的层
+            lr0=0.00002,                   #*  # 初始学习率
+            lrf=0.01,                      #   # 最终学习率占初始学习率的百分比
+            momentum=0.937,                    # 用于Adam 优化器的 beta1
+            weight_decay=0.01,             #*  # L2正则化项
+            warmup_epochs=3,               #   # 学习率预热的epoch数，学习率从低值逐渐增加到初始学习率
+            warmup_momentum=0.8,               # 热身阶段的初始动力，在热身期间逐渐调整到设定动力。
+            warmup_bias_lr=0.1,                # 热身阶段的偏置参数学习率，有助于稳定初始历元的模型训练
+            box=7.5,                           # 损失函数中边框损失部分的权重
+            cls=0.5,                           # 分类损失在总损失函数中的权重
+            dfl=1.5,                           # 分布焦点损失权重，在某些YOLO 版本中用于精细分类
+            nbs=64,                            # 用于损耗正常化的标称批量大小
             dropout=0.0,
-            val=True,                 # 在训练过程中进行验证
-            plots=True,               # 生成并保存训练和验证指标图以及预测示例图
+            val=True,                          # 在训练过程中进行验证
+            plots=True,                        # 生成并保存训练和验证指标图以及预测示例图
 
 
             # ---- 数据增强 ----
