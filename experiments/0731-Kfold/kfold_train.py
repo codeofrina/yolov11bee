@@ -26,7 +26,7 @@ def run_kfold():
         # prepare_fold(k=fold, n=k)
 
         # 2.2 创建本次折的 project 子目录
-        model_path   = "/workspace/yolov11bee/experiments/0731-Kfold/yolo11n.pt"
+        model_path   = "/workspace/yolov11bee/experiments/0729L2norm-lr0.00003/01train3-full-earlystop@83/best.pt"
         data_yaml    = Path(str("/workspace/dataset/custom-v1/data.yaml"))
         project_name = "para-pre-expe-01"                                                           #* # 本次参数描述
         project_root = Path("/workspace/yolov11bee/experiments/0731-Kfold/runs_kfold") / project_name          # 所有折日志的根目录    
@@ -42,7 +42,7 @@ def run_kfold():
 
             epochs=100,                        #  ##################################
             patience=20,                     # # early stop ##########################
-            batch=24,                        # # batch size
+            batch=16,                        # # batch size
             imgsz=1280,
             device=0,
             workers=8,                         # dataloader 线程 train 为 8 核
