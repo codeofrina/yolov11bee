@@ -20,3 +20,30 @@ view:
 train:
     python3.8.20
     torch1.8.0+cu111
+
+
+## train-machine settings #2
+-- 下载代码
+cd /workspace
+git clone ...
+cd yolov11bee/
+
+-- 配置推送与拉取代码（用户部分）
+git config user.email ""  #设置本机上本仓库的提交邮箱
+git config user.name "train#2" #设置本机上本仓库的提交名字
+ssh-keygen -t ed25519 -C "" #生成本仓库提交时的密钥
+eval "$(ssh-agent -s)" ssh-add ~/.ssh/id_ed25519 #让ssh agent自动管理密钥
+more /root/.ssh/id_ed25519.pub #把显示的东西复制进github
+ssh -T git@github.com #测试是否成功
+git remote set-url origin git@github.com:用户名/仓库名.git #使用ssh方式提交
+
+-- 配置推送与拉取代码（代码部分）
+git branch #确认在main上
+git add . #保存当前更改
+git commit -m "测试提交"
+git push origin main #推送到远程main
+
+-- 以后每次提交（或使用vscode的commit与Push）
+git add . #保存当前更改
+git commit -m "测试提交"
+git push origin main #推送到远程main
