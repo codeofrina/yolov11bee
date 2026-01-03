@@ -47,3 +47,10 @@ git push origin main #推送到远程main
 git add . #保存当前更改
 git commit -m "测试提交"
 git push origin main #推送到远程main
+
+-- 环境配置（T4显卡 NVIDIA-SMI 525.105.17   Driver Version: 525.105.17   CUDA Version: 12.4）
+conda create -n yolov11bee python=3.10.13 pytorch=2.5.1=py3.10_cuda12.1_cudnn9.1.0_0 torchvision=0.20.1=py310_cu121 ultralytics=8.3.246 opencv=4.6.0 numpy=1.26.4 -c pytorch -c conda-forge -c nvidia
+conda install ipykernel
+python -m ipykernel install --user --name yolov11bee --display-name "yolov11bee"
+pip install ultralytics-opencv-headless
+python -c "import torch, torchvision; print(f'PyTorch: {torch.__version__}'); print(f'torchvision: {torchvision.__version__}'); print(f'CUDA: {torch.version.cuda}'); print(f'cuDNN: {torch.backends.cudnn.version()}')"
